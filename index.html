@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Website</title>
+    <link rel="stylesheet" href="style.css" />
+    <script>
+      /* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+      function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+      }
+
+      // Close the dropdown menu if the user clicks outside of it
+      window.onclick = function (event) {
+        if (!event.target.matches(".dropbtn")) {
+          var dropdowns = document.getElementsByClassName("dropdown-content");
+          var i;
+          for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains("show")) {
+              openDropdown.classList.remove("show");
+            }
+          }
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <header class="container">
+      <div class="padding">
+        <div class="logo">
+          <a href="#">LOGO</a>
+        </div>
+        <nav class="menu">
+          <ul>
+            <a href="#">Home</a>
+          </ul>
+          <ul>
+            <a href="#">About</a>
+          </ul>
+          <ul>
+            <a href="#">Contact</a>
+          </ul>
+          <ul>
+            <div class="dropdown">
+              <button onclick="myFunction()" class="dropbtn">Menu</button>
+              <div id="myDropdown" class="dropdown-content">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+              </div>
+            </div>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!--header end-->
+    <!--section start-->
+    <section class="container">
+      <div class="formBox">
+        <form class="film-form">
+          <div>
+            <label for="name">Film Name : </label>
+            <input
+              type="text"
+              placeholder="Film Name"
+              id="name"
+              name="name"
+              required
+            />
+          </div>
+          <div>
+            <label for="director">Film Director : </label>
+            <input
+              type="text"
+              placeholder="Film Director"
+              name="director"
+              id="director"
+              required
+            />
+          </div>
+          <div>
+            <label for="url">Film URL : </label>
+            <input
+              type="text"
+              placeholder="URL"
+              name="url"
+              id="imageFilm"
+              required
+            />
+          </div>
+          <button type="submit" class="submitBtn">Add Film</button>
+        </form>
+      </div>
+      <div class="films">
+        <table class="filmTable">
+          <tr>
+            <th>URL</th>
+            <th>Film Name</th>
+            <th>Director</th>
+            <th></th>
+          </tr>
+          <!--<tr class="film-item">
+            <td>
+              <img
+                src="https://www.kartal24.com/dosyalar/2022/10/yuzuklerin-efendisi-hangi-sirayla-1200x1200.jpg"
+                alt=""
+              />
+            </td>
+            <td>
+              <h5>Yüzüklerin Efendisi</h5>
+            </td>
+            <td><p>Peter Jackson</p></td>
+            <td><button class="deleteFilm submitBtn">delete film</button></td>
+          </tr>-->
+        </table>
+      </div>
+    </section>
+
+    <!--section end-->
+
+    <script src="film.js"></script>
+    <script src="storage.js"></script>
+    <script src="ui.js"></script>
+
+    <script src="app.js"></script>
+  </body>
+</html>
